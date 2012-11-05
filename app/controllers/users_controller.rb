@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+
+  http_basic_authenticate_with name: ENV['USERNAME'], password: ENV['PASSWORD']
+
   # GET /users
   # GET /users.json
   def index
@@ -7,6 +10,7 @@ class UsersController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @users }
+      format.xls
     end
   end
 
